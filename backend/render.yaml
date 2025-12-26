@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: iot-petfeeder-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FIREBASE_PROJECT_ID
+        sync: false
+      - key: FIREBASE_PRIVATE_KEY_ID
+        sync: false
+      - key: FIREBASE_PRIVATE_KEY
+        sync: false
+      - key: FIREBASE_CLIENT_EMAIL
+        sync: false
+      - key: FIREBASE_CLIENT_ID
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: MQTT_BROKER_URL
+        value: mqtt://broker.hivemq.com
+      - key: MQTT_PORT
+        value: 1883
+      - key: MQTT_TOPIC
+        value: petfeeder/servo

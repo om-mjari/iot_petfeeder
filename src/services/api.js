@@ -1,5 +1,6 @@
 // API service for backend communication
-const API_BASE_URL = 'http://localhost:5000/api';
+// Use environment variable for API URL, fallback to localhost for development
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 // Helper function to make authenticated requests
 const apiRequest = async (endpoint, options = {}) => {
